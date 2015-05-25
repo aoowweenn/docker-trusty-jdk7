@@ -6,7 +6,7 @@ RUN echo 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main' > /e
 	&& echo "debconf shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections \
 	&& echo "debconf shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections \
 	&& apt-get update \
-	&& apt-get install oracle-java7-set-default \
+	&& apt-get --no-install-recommends -y --force-yes install oracle-java7-set-default \
 	&& apt-get clean \
 	&& rm -rf /var/cache/oracle-jdk7-installer \
 	&& rm -f /var/lib/apt/lists/*_dists_*
